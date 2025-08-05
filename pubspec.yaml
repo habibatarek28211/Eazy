@@ -42,3 +42,9 @@ flutter:
     - assets/
     - assets/images/
     - packages/
+  fonts:
+    - family: FFShamelFamily
+      fonts:
+        - asset: assets/fonts/FFShamelFamily-Regular.ttf
+        
+        - asset: assets/fonts/FFShamelFamily-Bold.ttf
