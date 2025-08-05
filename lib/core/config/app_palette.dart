@@ -23,6 +23,11 @@ class AppPalette {
   static const textFiledFocusedBorder = Color(0xFFF9FAFA);
   static const textFiledErrorBorder = actionFailLight;
 
+//ButtonBackground
+  static const badgeButton = Color(0xFF2A72AD);
+  static const badgeGrayButton = Color(0xFFAFB6B7);
+  static const subscribtionButton = Color(0xFFFFC32C24);
+
 // border color
   static const borderColor = primaryThinLight;
 
