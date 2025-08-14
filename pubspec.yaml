@@ -18,8 +18,10 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_svg: ^2.1.0
   image_picker: ^1.1.2
+  flutter_bloc: ^9.1.1
   dartz: ^0.10.1
   get_it:
+  lottie: ^2.7.0
 
 dev_dependencies:
   integration_test:
@@ -36,15 +38,8 @@ dev_dependencies:
 flutter:
   generate: true
   uses-material-design: true
-
   assets:
     - assets/svgs/
     - assets/
     - assets/images/
-    - packages/
-  fonts:
-    - family: FFShamelFamily
-      fonts:
-        - asset: assets/fonts/FFShamelFamily-Regular.ttf
-        
-        - asset: assets/fonts/FFShamelFamily-Bold.ttf
+    - assets/animations/
