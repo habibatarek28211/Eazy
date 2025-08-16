@@ -1,14 +1,27 @@
+import 'dart:async';
+import 'package:easy_app/core/routing/app_routes.dart';
+import 'package:easy_app/notification/presentation/screen/no_notification_body.dart';
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:eazy/core/routing/app_router.dart';
-import 'package:eazy/eazy.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 
 void main() async {
-  // await ServicesInitializer.init();
-  // runApp(Eazy(appRouter: AppRouter()));
-  runApp(
-    DevicePreview(
-        enabled: !kReleaseMode,
-        builder: (context) => Eazy(appRouter: AppRouter()),),);
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(const EasyApp());
+  Timer(Duration(seconds: 1), () => FlutterNativeSplash.remove());
+}
+
+class EasyApp extends StatelessWidget {
+  const EasyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
+      routes: AppRoutes.routes,
+      debugShowCheckedModeBanner: false,
+      initialRoute: NoNotificationBody.routeName,
+    );
+  }
 }
