@@ -1,6 +1,7 @@
-import 'package:easy_app/constants.dart';
+
 import 'package:flutter/material.dart';
 
+import '../../../constants.dart';
 import '../../../features/authscreen/widgets/custom_icon_bar.dart';
 
 class NoNotificationBody extends StatelessWidget {

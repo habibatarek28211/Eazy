@@ -6,43 +6,43 @@ import 'app_palette.dart';
 class TextStylesManager {
   // ******************************************** light ****************************************
   static TextStyle titleLargeLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 16.sp,
     color: AppPalette.textBlack,
     fontWeight: FontWeight.w700,
   );
   static TextStyle titleMedium = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 18.sp,
     color: AppPalette.textBlack,
     fontWeight: FontWeight.w400,
   );
   static TextStyle titleSmall = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 12.sp,
     color: AppPalette.textBlack,
     fontWeight: FontWeight.w400,
   );
   static TextStyle headlineLargeLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 15.sp,
     color: AppPalette.textSubtitleLight,
     fontWeight: FontWeight.w400,
   );
   static TextStyle headlineMediumLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 14.sp,
     color: AppPalette.textSubtitleLight,
     fontWeight: FontWeight.w400,
   );
   static TextStyle headlineSmallLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 12.sp,
     color: AppPalette.textSubtitleLight,
     fontWeight: FontWeight.w400,
   );
   static TextStyle bodyLargeLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 18.sp,
     color: AppPalette.textBlack,
     fontWeight: FontWeight.w400,
@@ -53,7 +53,7 @@ class TextStylesManager {
     fontWeight: FontWeight.w700,
   );
   static TextStyle bodySmallLight = TextStyle(
-    fontFamily: 'Cairo',
+    fontFamily: 'FFShamelFamily',
     fontSize: 12.sp,
     color: const Color.fromRGBO(254, 159, 69, 1),
     fontWeight: FontWeight.w400,

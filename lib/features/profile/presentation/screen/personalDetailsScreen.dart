@@ -1,11 +1,12 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/update_password_screen.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_text_field.dart';
-import 'package:easy_app/features/authscreen/widgets/show_bottom_sheet.dart';
+
 import 'package:flutter/material.dart';
+import '../../../../constants.dart';
 import '../../../../helper/show_dialog.dart';
+import '../../../authscreen/update_password_screen.dart';
+import '../../../authscreen/widgets/custom_buttom.dart';
 import '../../../authscreen/widgets/custom_icon_bar.dart';
+import '../../../authscreen/widgets/custom_text_field.dart';
+import '../../../authscreen/widgets/show_bottom_sheet.dart';
 
 class PersonalDetailsScreen extends StatelessWidget {
   const PersonalDetailsScreen({super.key});
