@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'package:easy_app/features/authscreen/reset_password.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_icon_bar.dart';
+import 'package:eazy/features/authscreen/reset_password.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:otp_text_field_v2/otp_field_style_v2.dart';
-import 'package:otp_text_field_v2/otp_field_v2.dart';
 import '../../constants.dart';
 
 
@@ -108,33 +106,35 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
 
               SizedBox(height: 50),
-              OTPTextFieldV2(
-                keyboardType: TextInputType.number,
-                onChanged: (value) {
-                  setState(() {
-                    otpValue = value;
-                    hasError = false;
-                  });
-                },
-                onCompleted: (value) {
-                  setState(() {
-                    otpValue = value;
-                    hasError = false;
-                  });
-                },
 
-                length: 4,
-                width: width(context),
-                textFieldAlignment: MainAxisAlignment.spaceEvenly,
-                fieldWidth: 50,
-                fieldStyle: FieldStyle.box,
-                otpFieldStyle: OtpFieldStyle(
-                  borderColor: hasError ? Colors.red : kPrimaryColor,
-                  focusBorderColor: hasError ? Colors.red : kPrimaryColor,
-                  enabledBorderColor: hasError ? Colors.red : Colors.grey,
-                ),
-              ),
-              SizedBox(height: 10),
+                  OTPTextField(
+                    length: 4,
+                    width: MediaQuery.of(context).size.width,
+                    fieldWidth: 50,
+                    style: const TextStyle(fontSize: 20),
+                    textFieldAlignment: MainAxisAlignment.spaceEvenly,
+                    fieldStyle: FieldStyle.box,
+                    otpFieldStyle: OtpFieldStyle(
+                      borderColor: hasError ? Colors.red : kPrimaryColor,
+                      focusBorderColor: hasError ? Colors.red : kPrimaryColor,
+                      backgroundColor: Colors.white,
+                    ),
+                    keyboardType: TextInputType.number,
+                    onChanged: (value) {
+                      setState(() {
+                        otpValue = value;
+                        hasError = false;
+                      });
+                    },
+                    onCompleted: (value) {
+                      setState(() {
+                        otpValue = value;
+                        hasError = false;
+                      });
+                    },
+                  ),
+
+                  SizedBox(height: 10),
               Visibility(
                 visible: hasError,
                 child: Row(
@@ -195,3 +195,5 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
+
+

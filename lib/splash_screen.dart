@@ -45,7 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-                  ImagesManager.eazyLogo,
+                  ImagesManager.eazyText,
                   height: 200.h,
                 ),
               ],
