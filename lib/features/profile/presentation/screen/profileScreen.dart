@@ -1,8 +1,14 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_setting_row.dart';
-import 'package:easy_app/features/authscreen/widgets/show_bottom_sheet.dart';
-import 'package:easy_app/features/profile/presentation/screen/personalDetailsScreen.dart';
+
+import 'package:eazy/features/profile/presentation/screen/personalDetailsScreen.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../constants.dart';
+import '../../../../core/Other/Screens/contact us.dart';
+import '../../../../core/Other/Screens/log out.dart';
+import '../../../../core/Other/Screens/share app.dart';
+import '../../../../core/Subscriptions/Screens/Subscriptions.dart';
+import '../../../authscreen/widgets/custom_setting_row.dart';
+import '../../../authscreen/widgets/show_bottom_sheet.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -106,7 +112,15 @@ class ProfileScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+
+                  Navigator.pop(context); // إغلاق الرسالة
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const UpgradeNowScreen()),
+                  );
+                },
                 icon: Image.asset("assets/images/crown.png", height: 30, width: 30),
                 label: const Text(
                   "الترقية إلى النسخة المميزة",
@@ -143,10 +157,22 @@ class ProfileScreen extends StatelessWidget {
                 CustomSettingRow(
                   image: 'assets/images/call 1.png',
                   text: "تواصل معنا",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const ContactUsScreen()),
+                    );
+                  },
                 ),
                 CustomSettingRow(
                   image: 'assets/images/share (1) 2.png',
-                  text: "مشاركة التطبيق",
+                  text: "مشاركة التطبيق", ///////////////////////////////////////////////////////
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const SharePage()),
+                    );
+                  },
                 ),
               ],
             ),
@@ -173,13 +199,20 @@ class ProfileScreen extends StatelessWidget {
                       },
                     );
                   },
-                  child: Text(
-                    "تسجيل الخروج",
+                  child: ElevatedButton(
+                     onPressed: () {
+                       Navigator.push(
+                         context,
+                         MaterialPageRoute(builder: (context) => const LogoutPage()),
+                       );
+                     },
+                    child: Text("تسجيل الخروج",
                     style: TextStyle(
-                      color: kSecondaryColor,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    color: kSecondaryColor,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+
+                  ),),
                   ),
                 ),
               ),

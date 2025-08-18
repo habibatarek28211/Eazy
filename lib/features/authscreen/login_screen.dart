@@ -1,10 +1,11 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/register_screen.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_text_field.dart';
-import 'package:easy_app/helper/show_dialog.dart';
+
+import 'package:eazy/features/authscreen/register_screen.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+import '../../helper/show_dialog.dart';
 import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
