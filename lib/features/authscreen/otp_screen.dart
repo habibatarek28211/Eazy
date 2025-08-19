@@ -1,11 +1,11 @@
 import 'dart:async';
-import 'package:easy_app/features/authscreen/reset_password.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_icon_bar.dart';
+import 'package:eazy/features/authscreen/reset_password.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field_v2/otp_field_style_v2.dart';
 import 'package:otp_text_field_v2/otp_field_v2.dart';
-import '../../constants.dart';
+import '../../core/config/constants.dart';
 
 
 

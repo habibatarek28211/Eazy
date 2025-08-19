@@ -1,6 +1,16 @@
-import 'package:eazy/core/routing/routes.dart';
-import 'package:eazy/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:eazy/core/routing/routes.dart';
+import 'package:eazy/features/authscreen/login_screen.dart';
+import 'package:eazy/features/authscreen/otp_screen.dart';
+import 'package:eazy/features/authscreen/register_screen.dart';
+import 'package:eazy/features/authscreen/reset_password.dart';
+import 'package:eazy/features/authscreen/update_password_screen.dart';
+import 'package:eazy/features/profile/presentation/screen/personalDetailsScreen.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
+import 'package:eazy/notification/presentation/screen/no_notification_body.dart';
+import 'package:eazy/features/authscreen/forget_password_screen.dart';
+import 'package:eazy/notification/presentation/screen/notification_screen.dart';
+import 'package:eazy/splash_screen.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
@@ -9,6 +19,27 @@ class AppRouter {
     switch (settings.name) {
       case Routes.splashScreen:
         return _animatedRoute(const SplashScreen(), settings);
+      case Routes.LoginScreen:
+        return _animatedRoute(const LoginScreen(), settings);
+      case Routes.RegisterScreen:
+        return _animatedRoute(const RegisterScreen(), settings);
+      case Routes.ForgetPasswordScreen:
+        return _animatedRoute(const ForgetPasswordScreen(), settings);
+      case Routes.OtpScreen:
+        return _animatedRoute(const OtpScreen(), settings);
+      case Routes.ResetPassword:
+        return _animatedRoute(const ResetPassword(), settings);
+      case Routes.UpdatePasswordScreen:
+        return _animatedRoute(const UpdatePasswordScreen(), settings);
+      case Routes.ProfileScreen:
+        return _animatedRoute(const ProfileScreen(), settings);
+      case Routes.PersonalDetailsScreen:
+        return _animatedRoute(const PersonalDetailsScreen(), settings);
+      case Routes.NotificationScreen:
+        return _animatedRoute(const NotificationScreen(), settings);
+      case Routes.NoNotificationBody:
+        return _animatedRoute(const NoNotificationBody(), settings);
+
       //   case Routes.onboardingWelcomeScreen:
       //   return _animatedRoute(const OnboardingWelcomeScreen(), settings);
       // case Routes.navScreen:

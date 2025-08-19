@@ -1,10 +1,9 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_icon_bar.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_text_field.dart';
-import 'package:easy_app/helper/show_snack_bar.dart';
 import 'package:flutter/material.dart';
-
+import 'package:eazy/core/config/constants.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
+import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
+import 'package:eazy/helper/show_snack_bar.dart';
 import 'otp_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
@@ -60,27 +59,23 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                 SizedBox(height: 10),
                 Column(
                   children: [
-
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                          'أدخل رقم الهاتف/البريد الالكتروني ',
-                          style: TextStyle(color: kSecondaryColor, fontSize: 18),
-                        ),
+                        'أدخل رقم الهاتف/البريد الالكتروني ',
+                        style: TextStyle(color: kSecondaryColor, fontSize: 18),
+                      ),
                     ),
                     Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                          'لاستعادة كلمة المرور',
-                          style: TextStyle(color: kSecondaryColor, fontSize: 18),
-                        ),
+                        'لاستعادة كلمة المرور',
+                        style: TextStyle(color: kSecondaryColor, fontSize: 18),
+                      ),
                     ),
-
-
                   ],
                 ),
                 SizedBox(height: 50),
-
                 CustomTextField(
                   text: ' أدخل رقم هاتف / بريد اليكتروني',
                   onChanged: (value) {
@@ -107,7 +102,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      showSnackBar(context, 'تم إرسال رابط استعادة كلمة المرور');
+                      showSnackBar(
+                          context, 'تم إرسال رابط استعادة كلمة المرور');
                       if (emailOrPhone != null && emailOrPhone!.isNotEmpty) {
                         Navigator.pushNamed(
                           context,
@@ -118,7 +114,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     } else {
                       setState(() {
                         autoValidateMode = AutovalidateMode.always;
-
                       });
                     }
                   },

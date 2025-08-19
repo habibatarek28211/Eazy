@@ -1,7 +1,7 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_setting_row.dart';
-import 'package:easy_app/features/authscreen/widgets/show_bottom_sheet.dart';
-import 'package:easy_app/features/profile/presentation/screen/personalDetailsScreen.dart';
+import 'package:eazy/core/config/constants.dart';
+import 'package:eazy/features/authscreen/widgets/custom_setting_row.dart';
+import 'package:eazy/features/authscreen/widgets/show_bottom_sheet.dart';
+import 'package:eazy/features/profile/presentation/screen/personalDetailsScreen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {

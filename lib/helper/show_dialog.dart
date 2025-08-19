@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+import '../core/config/constants.dart';
 
 void showSuccessDialog(BuildContext context,String message, String buttonText, VoidCallback onTap) {
 

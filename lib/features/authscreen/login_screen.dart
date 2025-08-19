@@ -1,10 +1,9 @@
-import 'package:easy_app/constants.dart';
-import 'package:easy_app/features/authscreen/register_screen.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_buttom.dart';
-import 'package:easy_app/features/authscreen/widgets/custom_text_field.dart';
-import 'package:easy_app/helper/show_dialog.dart';
 import 'package:flutter/material.dart';
-
+import 'package:eazy/core/config/constants.dart';
+import 'package:eazy/features/authscreen/register_screen.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
+import 'package:eazy/helper/show_dialog.dart';
 import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -33,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           Positioned.fill(
@@ -57,7 +55,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: height(context) * 0.3,
                     ),
                     const SizedBox(height: 50),
-
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -143,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             context,
                             'تم حفظ التعديلات بنجاح',
                             'تم',
-                                () {
+                            () {
                               Navigator.pop(context);
                             },
                           );
@@ -162,7 +159,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, RegisterScreen.routeName);
+                            Navigator.pushNamed(
+                                context, RegisterScreen.routeName);
                           },
                           child: const Text(
                             'سجل الآن',
@@ -190,7 +188,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-
       ),
     );
   }
