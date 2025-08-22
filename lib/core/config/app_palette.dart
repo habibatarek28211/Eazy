@@ -22,6 +22,7 @@ class AppPalette {
   static const textFiledEnabledBorder = Color(0xFFE6E9EA);
   static const textFiledFocusedBorder = Color(0xFFF9FAFA);
   static const textFiledErrorBorder = actionFailLight;
+  static const textFiledSearch = Color.fromRGBO(249, 250, 250, 1);
 
 //ButtonBackground
   static const badgeButton = Color(0xFF2A72AD);

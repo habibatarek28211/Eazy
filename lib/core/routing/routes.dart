@@ -1,15 +1,19 @@
 class Routes {
   static const String splashScreen = 'splashScreen';
-  static const String homeScreen = 'homeScreen';
+  static const String HomeScreen = 'homeScreen';
 
-  static const String LoginScreen = 'homeScreen';
-  static const String RegisterScreen = 'homeScreen';
-  static const String ForgetPasswordScreen = 'homeScreen';
-  static const String OtpScreen = 'homeScreen';
-  static const String ResetPassword = 'homeScreen';
-  static const String UpdatePasswordScreen = 'homeScreen';
-  static const String ProfileScreen = 'homeScreen';
-  static const String PersonalDetailsScreen = 'homeScreen';
-  static const String NotificationScreen = 'homeScreen';
-  static const String NoNotificationBody = 'homeScreen';
+  static const String LoginScreen = 'LoginScreen';
+  static const String RegisterScreen = 'RegisterScreen';
+  static const String ForgetPasswordScreen = 'ForgetPasswordScreen';
+  static const String OtpScreen = 'OtpScreen';
+  static const String ResetPassword = 'ResetPassword';
+  static const String UpdatePasswordScreen = 'UpdatePasswordScreen';
+  static const String ProfileScreen = 'ProfileScreen';
+  static const String PersonalDetailsScreen = 'PersonalDetailsScreen';
+  static const String NotificationScreen = 'NotificationScreen';
+  static const String NoNotificationBody = 'NoNotificationBody';
+  static const String SectionScreen = 'SectionScreen';
+  static const String LessonsDetails = 'LessonsDetails';
+  static const String LessonsScreen = 'LessonsScreen';
+
 }

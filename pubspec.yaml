@@ -22,6 +22,8 @@ dependencies:
   get_it: ^7.7.0
   lottie: ^2.7.0
   otp_text_field_v2:
+  flutter_localization:
+  smooth_page_indicator: ^1.2.1
 
 dev_dependencies:
   flutter_test:
