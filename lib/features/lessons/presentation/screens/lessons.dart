@@ -1,3 +1,5 @@
+import 'package:eazy/core/routing/routes.dart';
+import 'package:eazy/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/features/lessons/presentation/widgets/lessons_title.dart';
@@ -23,7 +25,9 @@ class LessonsScreen extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                        context.pushNamed(Routes.HomeScreen);
+                        },
                         icon: Icon(
                           Icons.arrow_back_ios,
                           size: 24.sp,

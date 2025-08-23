@@ -2,6 +2,7 @@ import 'package:eazy/features/home/presentation/Screens/home.dart';
 import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons_details.dart';
+import 'package:eazy/features/myLessons/presentation/screens/myLessons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/routing/routes.dart';
 import 'package:eazy/features/authscreen/login_screen.dart';
@@ -51,6 +52,8 @@ class AppRouter {
         return _animatedRoute(const LessonsDetails(), settings);
       case Routes.LessonsScreen:
         return _animatedRoute(const LessonsScreen(), settings);
+      case Routes.MyLessonsScreen:
+        return _animatedRoute(const MyLessonsScreen(), settings);
       //   case Routes.onboardingWelcomeScreen:
       //   return _animatedRoute(const OnboardingWelcomeScreen(), settings);
       // case Routes.navScreen:

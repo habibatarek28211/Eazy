@@ -1,6 +1,7 @@
 class ImagesManager {
   static const String newOffer = "assets/images/new_offers.png";
   static const String splashScreen = "assets/images/splash.png";
+  static const String eazytxt = "assets/images/eazytext.png";
   static const String bill = "assets/svgs/bill.svg";
   static const String book = "assets/svgs/book.svg";
   static const String bookmark = "assets/svgs/bookmark.svg";
@@ -8,7 +9,7 @@ class ImagesManager {
   static const String camera = "assets/svgs/camera.svg";
   static const String crown = "assets/svgs/crown.svg";
   static const String delete = "assets/svgs/delete.svg";
-  static const String eazyText = "assets/svgs/eazy_text.svg";
+  static const String eazy_text = "assets/svgs/eazy_text.svg";
   static const String eazy = "assets/svgs/eazy.svg";
   static const String eazyLogo = "assets/images/eazy.png";
   static const String edit = "assets/svgs/edit.svg";

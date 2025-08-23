@@ -63,8 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.all(2),
-                  child: SvgPicture.asset(
-                    ImagesManager.eazyText,
+                  child: Image.asset(
+                    ImagesManager.eazytxt,
                   ),
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
-import 'package:eazy/features/lessons/presentation/screens/lessons_details.dart';
+import 'package:eazy/core/routing/routes.dart';
+import 'package:eazy/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,7 +98,7 @@ class LessonHeader extends StatelessWidget {
               bottom: -20.h,
               child: TextButton(
                 onPressed: () {
-                  LessonsDetails();
+                  context.pushNamed(Routes.LessonsDetails);
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: AppPalette.badgeButton,

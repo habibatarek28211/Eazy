@@ -1,3 +1,5 @@
+import 'package:eazy/core/routing/routes.dart';
+import 'package:eazy/core/utils/extensions.dart';
 import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
@@ -85,7 +87,6 @@ class _PromotionalBannerState extends State<PromotionalBanner> {
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      fontFamily: 'Arial',
                     ),
                     children: [
                       TextSpan(text: title1),
@@ -246,7 +247,7 @@ class ServicesSection extends StatelessWidget {
                 );
               },
               child: Text(
-                'عرض المزيد',
+                'المزيد',
                 style: TextStyle(
                   color: Colors.orange,
                   fontSize: 14,
@@ -476,7 +477,9 @@ class ContinueLessonsCard extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(Routes.LessonsScreen);
+                },
                 child: const Text(
                   'استكمل',
                   style: TextStyle(
