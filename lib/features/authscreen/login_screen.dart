@@ -1,9 +1,7 @@
-
 import 'package:eazy/features/authscreen/register_screen.dart';
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
 import '../../helper/show_dialog.dart';
 import 'forget_password_screen.dart';
@@ -37,10 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/images/splash.png',
-              fit: BoxFit.cover,
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/splash.png"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
@@ -50,6 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
               autovalidateMode: autoValidateMode,
               child: SingleChildScrollView(
                 child: Column(
+
                   children: [
                     const SizedBox(height: 30),
                     Image.asset(

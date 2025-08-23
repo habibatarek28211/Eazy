@@ -1,14 +1,12 @@
-
+import 'package:eazy/constants.dart';
+import 'package:eazy/features/Other/Screens/contact%20us.dart';
+import 'package:eazy/features/Other/Screens/log%20out.dart';
+import 'package:eazy/features/Other/Screens/share%20app.dart';
+import 'package:eazy/features/Subscriptions/Screens/Subscriptions.dart';
+import 'package:eazy/features/authscreen/widgets/custom_setting_row.dart';
+import 'package:eazy/features/authscreen/widgets/show_bottom_sheet.dart';
 import 'package:eazy/features/profile/presentation/screen/personalDetailsScreen.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../constants.dart';
-import '../../../../core/Other/Screens/contact us.dart';
-import '../../../../core/Other/Screens/log out.dart';
-import '../../../../core/Other/Screens/share app.dart';
-import '../../../../core/Subscriptions/Screens/Subscriptions.dart';
-import '../../../authscreen/widgets/custom_setting_row.dart';
-import '../../../authscreen/widgets/show_bottom_sheet.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -113,15 +111,19 @@ class ProfileScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: ElevatedButton.icon(
                 onPressed: () {
-
                   Navigator.pop(context); // إغلاق الرسالة
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const UpgradeNowScreen()),
+                      builder: (context) => const UpgradeNowScreen(),
+                    ),
                   );
                 },
-                icon: Image.asset("assets/images/crown.png", height: 30, width: 30),
+                icon: Image.asset(
+                  "assets/images/crown.png",
+                  height: 30,
+                  width: 30,
+                ),
                 label: const Text(
                   "الترقية إلى النسخة المميزة",
                   style: TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
@@ -160,17 +162,22 @@ class ProfileScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const ContactUsScreen()),
+                      MaterialPageRoute(
+                        builder: (context) => const ContactUsScreen(),
+                      ),
                     );
                   },
                 ),
                 CustomSettingRow(
                   image: 'assets/images/share (1) 2.png',
-                  text: "مشاركة التطبيق", ///////////////////////////////////////////////////////
+                  text:
+                      "مشاركة التطبيق", ///////////////////////////////////////////////////////
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const SharePage()),
+                      MaterialPageRoute(
+                        builder: (context) => const SharePage(),
+                      ),
                     );
                   },
                 ),
@@ -200,19 +207,22 @@ class ProfileScreen extends StatelessWidget {
                     );
                   },
                   child: ElevatedButton(
-                     onPressed: () {
-                       Navigator.push(
-                         context,
-                         MaterialPageRoute(builder: (context) => const LogoutPage()),
-                       );
-                     },
-                    child: Text("تسجيل الخروج",
-                    style: TextStyle(
-                    color: kSecondaryColor,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-
-                  ),),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LogoutPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "تسجيل الخروج",
+                      style: TextStyle(
+                        color: kSecondaryColor,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
               ),

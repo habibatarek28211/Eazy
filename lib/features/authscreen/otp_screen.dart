@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'package:eazy/constants.dart';
 import 'package:eazy/features/authscreen/reset_password.dart';
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:flutter/material.dart';
-import '../../constants.dart';
+import 'package:otp_text_field_v2/otp_field_style_v2.dart';
+import 'package:otp_text_field_v2/otp_field_v2.dart';
 
 
 
@@ -107,7 +109,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
               SizedBox(height: 50),
 
-                  OTPTextField(
+                  OTPTextFieldV2(
                     length: 4,
                     width: MediaQuery.of(context).size.width,
                     fieldWidth: 50,
@@ -195,5 +197,3 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
-
-

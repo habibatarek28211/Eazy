@@ -32,10 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           // الخلفية
           SizedBox.expand(
-            child: Image.asset(
-              ImagesManager.splashScreen,
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(ImagesManager.splashScreen, fit: BoxFit.cover),
           ),
 
           // المحتوى في منتصف الشاشة
@@ -43,12 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  ImagesManager.eazyText,
-                  height: 200.h,
-                ),
-              ],
+              children: [Image.asset(ImagesManager.eazy_text, height: 200.h)],
             ),
           ),
           Align(
@@ -125,7 +117,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             // الأزرار أسفل الشاشة
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: AppPadding.horizontalPagePadding),
+                horizontal: AppPadding.horizontalPagePadding,
+              ),
               child: _currentPage == _pages.length - 1
                   // زر البدء
                   ? ElevatedButton(
@@ -152,35 +145,39 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   : Row(
                       children: [
                         ElevatedButton(
-                            onPressed: () {
-                              _pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppPalette.badgeButton,
-                              minimumSize: Size(231, 57),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
+                          onPressed: () {
+                            _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppPalette.badgeButton,
+                            minimumSize: Size(231, 57),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.arrow_back_ios,
-                                    color: Colors.white, size: 18),
-                                const SizedBox(width: 8), // مسافة ثابتة
-                                Text(
-                                  "التالي",
-                                  style: GoogleFonts.tajawal(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.arrow_back_ios,
+                                color: Colors.white,
+                                size: 18,
+                              ),
+                              const SizedBox(width: 8), // مسافة ثابتة
+                              Text(
+                                "التالي",
+                                style: GoogleFonts.tajawal(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.white,
                                 ),
-                              ],
-                            )),
+                              ),
+                            ],
+                          ),
+                        ),
                         const Spacer(),
                         TextButton(
                           onPressed: () =>
@@ -206,15 +203,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _buildOnboardingPage(OnboardingPageModel page) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: AppPadding.horizontalPagePadding,
-          vertical: AppPadding.verticalPadding),
+        horizontal: AppPadding.horizontalPagePadding,
+        vertical: AppPadding.verticalPadding,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            ImagesManager.onboarding,
-            height: 350.h,
-          ),
+          Image.asset(ImagesManager.onboarding, height: 350.h),
           SizedBox(height: 50.h),
 
           // مؤشر الصفحات تحت الصورة
@@ -275,8 +270,5 @@ class OnboardingPageModel {
   final String title;
   final String description;
 
-  OnboardingPageModel({
-    required this.title,
-    required this.description,
-  });
+  OnboardingPageModel({required this.title, required this.description});
 }
