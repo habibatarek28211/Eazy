@@ -3,6 +3,7 @@ import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons_details.dart';
 import 'package:eazy/features/myLessons/presentation/screens/myLessons_screen.dart';
+import 'package:eazy/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/routing/routes.dart';
 import 'package:eazy/features/authscreen/login_screen.dart';
@@ -36,6 +37,8 @@ class AppRouter {
         return _animatedRoute(const ResetPassword(), settings);
       case Routes.UpdatePasswordScreen:
         return _animatedRoute(const UpdatePasswordScreen(), settings);
+      case Routes.CustomNavBar:
+        return _animatedRoute(const CustomNavBar(), settings);
       case Routes.HomeScreen:
         return _animatedRoute(const HomeScreen(), settings);
       case Routes.ProfileScreen:

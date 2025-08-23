@@ -16,6 +16,7 @@ class Routes {
   static const String LessonsDetails = 'LessonsDetails';
   static const String LessonsScreen = 'LessonsScreen';
   static const String MyLessonsScreen = 'MyLessonsScreen';
+  static const String CustomNavBar = 'CustomNavBar';
 
 
 }

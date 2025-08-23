@@ -1,5 +1,4 @@
-import 'package:eazy/core/routing/routes.dart';
-import 'package:eazy/core/utils/extensions.dart';
+import 'package:eazy/features/home/presentation/Screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/features/lessons/presentation/widgets/lessons_title.dart';
@@ -26,7 +25,7 @@ class LessonsScreen extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {
-                        context.pushNamed(Routes.HomeScreen);
+                          Navigator.pop(context);
                         },
                         icon: Icon(
                           Icons.arrow_back_ios,
@@ -166,7 +165,9 @@ class LessonItem extends StatelessWidget {
                 width: 60.w,
                 height: 28.h,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // زرار الاشتراك
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: AppPalette.textOrange,
                     shape: RoundedRectangleBorder(

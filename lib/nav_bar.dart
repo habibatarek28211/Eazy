@@ -1,108 +1,110 @@
-// import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:eazy/core/config/app_palette.dart';
+import 'package:eazy/features/home/presentation/Screens/home.dart';
+import 'package:eazy/features/myLessons/presentation/screens/myLessons_screen.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
+import 'package:flutter/material.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
-// class NavbarScreen extends StatefulWidget {
-//   const NavbarScreen({super.key});
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
 
-//   @override
-//   State<NavbarScreen> createState() => _NavbarScreenState();
-// }
+  @override
+  State<CustomNavBar> createState() => _CustomNavBarState();
+}
 
-// class _NavbarScreenState extends State<NavbarScreen> {
-//   int _selectedIndex = 1; // يبدأ بالرئيسية (اللي في النص)
+class _CustomNavBarState extends State<CustomNavBar> {
+  int _currentIndex = 1; // Start with home (middle) selected
 
-//   final List<Widget> _pages = [
-//     Center(child: Text("حسابي", style: TextStyle(fontSize: 22))),
-//     Center(child: Text("الرئيسية", style: TextStyle(fontSize: 22))),
-//     Center(child: Text("دروسي", style: TextStyle(fontSize: 22))),
-//   ];
+  // Icons for the side navigation (excluding home)
+  final iconList = <IconData>[
+    Icons.menu_book_outlined,
+    Icons.person_rounded,
+  ];
 
-//   void _onItemTapped(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-//   }
+  // Labels for bottom navigation
+  final labels = ['دروسي', 'الرئيسية', 'حسابي'];
+  final List<Widget> _pages = const [
+    MyLessonsScreen(), // index 0
+    HomeScreen(), // index 1
+    ProfileScreen(), // index 2
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      body: _pages[_currentIndex],
+      // ✅ شكل الهوم (الدائرة الملونة والأيقونة بيضاء)
+      floatingActionButton: Container(
+        width: 65,
+        height: 65,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _currentIndex == 1 ? AppPalette.badgeButton : Colors.black,
+          boxShadow: [
+            BoxShadow(
+              color:
+                  (_currentIndex == 1 ? AppPalette.badgeButton : Colors.black)
+                      .withOpacity(0.3),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: FloatingActionButton(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          child: Icon(
+            Icons.home,
+            size: 30,
+            color: Colors.white, // ✅ الأبيض دايمًا
+          ),
+          onPressed: () {
+            setState(() {
+              _currentIndex = 1; // Home
+            });
+          },
+        ),
+      ),
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: _pages[_selectedIndex],
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+        itemCount: iconList.length,
+        tabBuilder: (index, isActive) {
+          int actualIndex = index == 0 ? 0 : 2;
+          bool isCurrentActive = _currentIndex == actualIndex;
 
-//       bottomNavigationBar: BottomAppBar(
-//         shape: const CircularNotchedRectangle(),
-//         notchMargin: 8,
-//         child: SizedBox(
-//           height: 60,
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceAround,
-//             children: [
-//               // حسابي
-//               InkWell(
-//                 onTap: () => _onItemTapped(0),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Icon(Icons.person,
-//                         color:
-//                             _selectedIndex == 0 ? Colors.blue : Colors.black),
-//                     Text(
-//                       "حسابي",
-//                       style: GoogleFonts.tajawal(
-//                         color: _selectedIndex == 0 ? Colors.blue : Colors.black,
-//                         fontSize: 12,
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               ),
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                iconList[index],
+                color: isCurrentActive ? AppPalette.badgeButton : Colors.black,
+              ),
+              Text(
+                labels[actualIndex],
+                style: TextStyle(
+                  color:
+                      isCurrentActive ? AppPalette.badgeButton : Colors.black,
+                ),
+              ),
+            ],
+          );
+        },
+        activeIndex: _getActiveIndex(),
+        gapLocation: GapLocation.center,
+        notchSmoothness: NotchSmoothness.softEdge,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index == 0 ? 0 : 2;
+          });
+        },
+      ),
+    );
+  }
 
-//               const SizedBox(width: 40), // مساحة للأيقونة الوسطية
-
-//               // دروسي
-//               InkWell(
-//                 onTap: () => _onItemTapped(2),
-//                 child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.center,
-//                   children: [
-//                     Icon(Icons.menu_book,
-//                         color:
-//                             _selectedIndex == 2 ? Colors.blue : Colors.black),
-//                     Text(
-//                       "دروسي",
-//                       style: GoogleFonts.tajawal(
-//                         color: _selectedIndex == 2 ? Colors.blue : Colors.black,
-//                         fontSize: 12,
-//                       ),
-//                     )
-//                   ],
-//                 ),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-
-//       // الأيقونة الوسطية (Home)
-//       floatingActionButton: FloatingActionButton(
-//         backgroundColor:
-//             _selectedIndex == 1 ? Colors.blue : Colors.black, // يتغير لونه
-//         shape: const CircleBorder(),
-//         onPressed: () => _onItemTapped(1),
-//         child: const Icon(Icons.home, color: Colors.white),
-//       ),
-//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-//     );
-//   }
-// }
-
-//  final List<Widget> _pages = [
-//     Center(child: Text("حسابي", style: TextStyle(fontSize: 22))),
-//     const HomeBody(), // هنا الصفحة الرئيسية الفعلية
-//     Center(child: Text("دروسي", style: TextStyle(fontSize: 22))),
-//   ];
-
-//   void _onItemTapped(int index) {
-//     setState(() {
-//       _selectedIndex = index;
-//     });
-//   }
+  int _getActiveIndex() {
+    if (_currentIndex == 1) return -1;
+    return _currentIndex == 0 ? 0 : 1;
+  }
+}

@@ -1,6 +1,6 @@
-import 'package:eazy/core/routing/routes.dart';
-import 'package:eazy/core/utils/extensions.dart';
+
 import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
+import 'package:eazy/features/lessons/presentation/screens/lessons.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
@@ -478,7 +478,11 @@ class ContinueLessonsCard extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 ),
                 onPressed: () {
-                  context.pushNamed(Routes.LessonsScreen);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LessonsScreen()),
+                  );
                 },
                 child: const Text(
                   'استكمل',

@@ -24,6 +24,7 @@ dependencies:
   otp_text_field_v2:
   flutter_localization:
   smooth_page_indicator: ^1.2.1
+  animated_bottom_navigation_bar: ^1.4.0
 
 dev_dependencies:
   flutter_test:
