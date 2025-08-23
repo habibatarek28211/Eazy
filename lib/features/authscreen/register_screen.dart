@@ -25,7 +25,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           Container(
@@ -180,7 +179,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     SizedBox(height: 30),
                     CustomButton(
-                      onTap: validateAndSubmit,
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
+                      },
                       text: 'إنشاء حساب',
                     ),
 
@@ -190,7 +196,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ),
+                            );
                           },
                           child: Text(
                             'تسجيل الدخول',
@@ -211,7 +222,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-
                       ],
                     ),
                   ],
@@ -219,14 +229,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
           ),
-
-
         ],
-
-
       ),
     );
   }
+
   void validateAndSubmit() {
     if (!isCheck) {
       showSnackBar(context, 'يجب الموافقة على الشروط والأحكام للاستمرار');
@@ -235,7 +242,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-
     } else {
       setState(() {
         autoValidateMode = AutovalidateMode.always;

@@ -4,6 +4,7 @@ import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
 import 'package:eazy/features/authscreen/widgets/show_bottom_sheet.dart';
+import 'package:eazy/features/home/presentation/Screens/home.dart';
 import 'package:eazy/helper/show_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -96,14 +97,7 @@ class PersonalDetailsScreen extends StatelessWidget {
 
               CustomButton(
                 onTap: () {
-                  showSuccessDialog(
-                    context,
-                    'تم حفظ التعديلات بنجاح',
-                    'تم',
-                    () {
-                      Navigator.pop(context);
-                    },
-                  );
+                  Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 text: 'حفظ التعديلات',
               ),

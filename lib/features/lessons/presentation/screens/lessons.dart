@@ -1,3 +1,4 @@
+import 'package:eazy/features/Subscriptions/Screens/Upgrade%20now.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/features/lessons/presentation/widgets/lessons_title.dart';
@@ -165,7 +166,12 @@ class LessonItem extends StatelessWidget {
                 height: 28.h,
                 child: TextButton(
                   onPressed: () {
-                    // زرار الاشتراك
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const UpgradeNowScreen(),
+                      ),
+                    );
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: AppPalette.textOrange,
@@ -185,21 +191,13 @@ class LessonItem extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 2.w),
-              Icon(
-                Icons.lock,
-                size: 16.sp,
-                color: Colors.grey,
-              ),
+              Icon(Icons.lock, size: 16.sp, color: Colors.grey),
             ],
             Container(
               width: 40.w,
               height: 40.h,
               child: Center(
-                child: Icon(
-                  _getIcon(),
-                  color: _getIconColor(),
-                  size: 20.sp,
-                ),
+                child: Icon(_getIcon(), color: _getIconColor(), size: 20.sp),
               ),
             ),
           ],

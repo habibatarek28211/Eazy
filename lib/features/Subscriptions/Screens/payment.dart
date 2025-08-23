@@ -1,7 +1,7 @@
-import 'package:eazy/core/config/app_padding.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
 import 'package:eazy/features/Subscriptions/Screens/Subscriptions.dart';
+import 'package:eazy/features/Subscriptions/Screens/Upgrade%20now.dart';
 import 'package:flutter/material.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -40,13 +40,9 @@ class PaymentScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // صورة Eazy
-                  Image.asset(
-                    ImagesManager.eazy,
-                    height: 150,
-                  ),
+                  Image.asset(ImagesManager.eazy, height: 150),
                   const SizedBox(height: 8),
 
-                
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -60,34 +56,33 @@ class PaymentScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(width: 6),
-                      Image.asset(
-                        ImagesManager.padlock,
-                        width: 20,
-                        height: 20,
-                      ),
+                      Image.asset(ImagesManager.padlock, width: 20, height: 20),
                     ],
                   ),
 
                   const SizedBox(height: 30),
 
-
                   _buildInputField(
-                      label: "رقم البطاقة", hint: "**** **** **** 1234"),
+                    label: "رقم البطاقة",
+                    hint: "**** **** **** 1234",
+                  ),
                   const SizedBox(height: fieldSpacing),
-
 
                   Row(
                     children: [
                       Expanded(
                         child: _buildInputField(
-                            label: "تاريخ الانتهاء", hint: "MM/YY"),
+                          label: "تاريخ الانتهاء",
+                          hint: "MM/YY",
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Expanded(
                         child: _buildInputField(
-                            label: "رمز الأمان",
-                            hint: "CVV",
-                            obscureText: true),
+                          label: "رمز الأمان",
+                          hint: "CVV",
+                          obscureText: true,
+                        ),
                       ),
                     ],
                   ),
@@ -95,7 +90,9 @@ class PaymentScreen extends StatelessWidget {
 
                   // اسم حامل البطاقة
                   _buildInputField(
-                      label: "اسم حامل البطاقة", hint: "كما هو على البطاقة"),
+                    label: "اسم حامل البطاقة",
+                    hint: "كما هو على البطاقة",
+                  ),
                   const SizedBox(height: fieldSpacing),
 
                   const SizedBox(height: 10),
@@ -132,63 +129,70 @@ class PaymentScreen extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-                                content: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    const SizedBox(height: 8),
-                                    const Text(
-                                      "تم الدفع بنجاح",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              contentPadding: const EdgeInsets.symmetric(
+                                vertical: 20,
+                                horizontal: 24,
+                              ),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const SizedBox(height: 8),
+                                  const Text(
+                                    "تم الدفع بنجاح",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
                                     ),
-                                    const SizedBox(height: 24),
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          backgroundColor: AppPalette.primary,
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(12),
-                                          ),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(context,
-                                              MaterialPageRoute(
-                                              builder: (context) => const UpgradeNowScreen(),),
-                                          );
-                                        },
-                                        child: const Text(
-                                          "تم",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            color: AppPalette.textLight,
+                                  ),
+                                  const SizedBox(height: 24),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppPalette.primary,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            12,
                                           ),
                                         ),
                                       ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SubscriptionScreen(),
+                                          ),
+                                        );
+                                      },
+                                      child: const Text(
+                                        "تم",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: AppPalette.textLight,
+                                        ),
+                                      ),
                                     ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-
-
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
                       },
                       child: const Text(
                         "اذهب للدفع",
                         style: TextStyle(
-                            fontSize: 18, color: AppPalette.textLight),
+                          fontSize: 18,
+                          color: AppPalette.textLight,
+                        ),
                       ),
                     ),
                   ),
@@ -201,9 +205,11 @@ class PaymentScreen extends StatelessWidget {
     );
   }
 
-
-  static Widget _buildInputField(
-      {required String label, required String hint, bool obscureText = false}) {
+  static Widget _buildInputField({
+    required String label,
+    required String hint,
+    bool obscureText = false,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -221,12 +227,15 @@ class PaymentScreen extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: const TextStyle(color: AppPalette.textSubtitleLight),
-            contentPadding:
-            const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 14,
+            ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
-              borderSide:
-              const BorderSide(color: AppPalette.textFiledEnabledBorder),
+              borderSide: const BorderSide(
+                color: AppPalette.textFiledEnabledBorder,
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -245,7 +254,6 @@ class PaymentScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppPalette.textFiledFocusedBorder,
         borderRadius: BorderRadius.circular(12),
-
       ),
       child: Column(
         children: [
@@ -260,8 +268,11 @@ class PaymentScreen extends StatelessWidget {
   }
 
   // صف ملخص الدفع
-  static Widget _buildSummaryRow(String title, String value,
-      {bool isBold = false}) {
+  static Widget _buildSummaryRow(
+    String title,
+    String value, {
+    bool isBold = false,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [

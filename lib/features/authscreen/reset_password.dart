@@ -120,7 +120,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                         'تم حفظ التغيرات بنجاح',
                         'انتقل الي الصفحه الرئيسيه',
                         () {
-                          Navigator.pushNamed(context, LoginScreen.routeName);
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
                         },
                       );
                       // Navigator.pushNamed(context, LoginScreen.routeName);

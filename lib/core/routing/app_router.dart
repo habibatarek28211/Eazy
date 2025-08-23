@@ -1,3 +1,4 @@
+import 'package:eazy/features/Subscriptions/Screens/Upgrade%20now.dart';
 import 'package:eazy/features/home/presentation/Screens/home.dart';
 import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons.dart';
@@ -57,10 +58,11 @@ class AppRouter {
         return _animatedRoute(const LessonsScreen(), settings);
       case Routes.MyLessonsScreen:
         return _animatedRoute(const MyLessonsScreen(), settings);
+      case Routes.UpgradeNowScreen:
+        return _animatedRoute(const UpgradeNowScreen(), settings);
       //   case Routes.onboardingWelcomeScreen:
       //   return _animatedRoute(const OnboardingWelcomeScreen(), settings);
-      // case Routes.navScreen:
-      //   return _animatedRoute(const NavScreen(), settings);
+      
       // case Routes.onboardingScreen:
       //   return _animatedRoute(const OnboardingScreen(), settings);
 

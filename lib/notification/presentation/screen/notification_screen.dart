@@ -19,10 +19,10 @@ class NotificationScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const CustomIconBar(),
-            onPressed: () => Navigator.pop(context),
-          ),
+          // IconButton(
+          //   icon: const CustomIconBar(),
+          //   onPressed: () => Navigator.pop(context),
+          // ),
         ],
       ),
       body: Padding(

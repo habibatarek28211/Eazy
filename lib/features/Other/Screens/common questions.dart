@@ -1,7 +1,7 @@
 import 'package:eazy/core/config/app_palette.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
 import 'package:flutter/material.dart';
 import 'Terms and Conditions.dart';
-
 
 class FAQScreen extends StatelessWidget {
   const FAQScreen({Key? key}) : super(key: key);
@@ -11,15 +11,18 @@ class FAQScreen extends StatelessWidget {
     final List<Map<String, String>> faqs = [
       {
         "question": "نص السؤال هنا والذي عادة ما يتكون من عدة أسطر هكذا المثال",
-        "answer": "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر."
+        "answer":
+            "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر.",
       },
       {
         "question": "نص السؤال هنا والذي عادة ما يتكون من عدة أسطر هكذا المثال",
-        "answer": "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر."
+        "answer":
+            "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر.",
       },
       {
         "question": "نص السؤال هنا والذي عادة ما يتكون من عدة أسطر هكذا المثال",
-        "answer": "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر."
+        "answer":
+            "نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر. نص الجواب الذي يكون هنا عادة ما يتكون من عدة أسطر.",
       },
     ];
 
@@ -40,13 +43,14 @@ class FAQScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.arrow_forward_ios, color: AppPalette.textBlack),
+            icon: const Icon(
+              Icons.arrow_forward_ios,
+              color: AppPalette.textBlack,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const TermsAndConditionsPage(),
-                ),
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
               );
             },
           ),
@@ -69,7 +73,7 @@ class FAQScreen extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color:AppPalette.textLight,
+        color: AppPalette.textLight,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -104,7 +108,10 @@ class FAQScreen extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 child: Text(
                   answer,
-                  style: const TextStyle(fontSize: 13, color:AppPalette.textSubtitleLight),
+                  style: const TextStyle(
+                    fontSize: 13,
+                    color: AppPalette.textSubtitleLight,
+                  ),
                 ),
               ),
             ),

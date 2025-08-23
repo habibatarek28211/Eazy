@@ -1,6 +1,4 @@
 import 'package:eazy/core/config/app_palette.dart';
-import 'package:eazy/core/routing/routes.dart';
-import 'package:eazy/core/utils/extensions.dart';
 import 'package:eazy/features/home/presentation/widgets/home_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,15 +27,15 @@ class _MyLessonsScreenState extends State<MyLessonsScreen> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.black87,
-          ),
-          onPressed: () {
-            context.pushNamed(Routes.HomeScreen);
-          },
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(
+        //     Icons.arrow_back_ios_new,
+        //     color: Colors.black87,
+        //   ),
+        //   onPressed: () {
+        //     context.pushNamed(Routes.HomeScreen);
+        //   },
+        // ),
       ),
       body: SafeArea(
         child: const SingleChildScrollView(
@@ -135,11 +133,7 @@ class LessonItem extends StatelessWidget {
               width: 40.w,
               height: 40.h,
               child: Center(
-                child: Icon(
-                  _getIcon(),
-                  color: _getIconColor(),
-                  size: 20.sp,
-                ),
+                child: Icon(_getIcon(), color: _getIconColor(), size: 20.sp),
               ),
             ),
           ],

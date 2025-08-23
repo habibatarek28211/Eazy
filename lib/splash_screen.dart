@@ -1,6 +1,7 @@
 import 'package:eazy/core/config/app_padding.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
+import 'package:eazy/features/authscreen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -40,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [Image.asset(ImagesManager.eazy_text, height: 200.h)],
+              children: [Image.asset(ImagesManager.eazy, height: 200.h)],
             ),
           ),
           Align(
@@ -123,7 +124,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   // زر البدء
                   ? ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppPalette.textOrange,
@@ -143,7 +149,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     )
                   // الصفحات الأولى والثانية
                   : Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      textDirection: TextDirection.rtl,
                       children: [
+                        // زرار التالي (هينزل على الشمال)
                         ElevatedButton(
                           onPressed: () {
                             _pageController.nextPage(
@@ -153,7 +162,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: AppPalette.badgeButton,
-                            minimumSize: Size(231, 57),
+                            minimumSize: const Size(231, 57),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -166,7 +175,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 color: Colors.white,
                                 size: 18,
                               ),
-                              const SizedBox(width: 8), // مسافة ثابتة
+                              const SizedBox(width: 8),
                               Text(
                                 "التالي",
                                 style: GoogleFonts.tajawal(
@@ -178,10 +187,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ],
                           ),
                         ),
-                        const Spacer(),
+
+                        // زرار تخطي (هيفضل على اليمين)
                         TextButton(
-                          onPressed: () =>
-                              Navigator.pushReplacementNamed(context, '/home'),
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ),
+                            );
+                          },
                           child: Text(
                             "تخطي",
                             style: GoogleFonts.tajawal(

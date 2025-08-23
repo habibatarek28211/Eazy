@@ -17,4 +17,5 @@ class Routes {
   static const String LessonsScreen = 'LessonsScreen';
   static const String MyLessonsScreen = 'MyLessonsScreen';
   static const String CustomNavBar = 'CustomNavBar';
+  static const String UpgradeNowScreen = 'UpgradeNowScreen';
 }

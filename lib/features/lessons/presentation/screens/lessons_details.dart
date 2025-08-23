@@ -109,7 +109,9 @@ class LessonsDetails extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // fav button
+                        },
                         icon: Icon(
                           Icons.bookmark,
                           size: 24.sp,

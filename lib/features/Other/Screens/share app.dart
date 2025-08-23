@@ -1,4 +1,5 @@
 import 'package:eazy/core/config/app_palette.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,8 +44,11 @@ class SharePage extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Icon(Icons.wifi_tethering,
-                            size: 50, color: AppPalette.selectedIconLight),
+                        Icon(
+                          Icons.wifi_tethering,
+                          size: 50,
+                          color: AppPalette.selectedIconLight,
+                        ),
                         const SizedBox(width: 12),
                         Expanded(
                           child: RichText(
@@ -60,12 +64,11 @@ class SharePage extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text:
-                                  '. Share instantly with people nearby If they turn on AirDrop from Control Center on iOS or from Finder on the Mac, you\'ll see their names here. Just tap to share.',
+                                      '. Share instantly with people nearby If they turn on AirDrop from Control Center on iOS or from Finder on the Mac, you\'ll see their names here. Just tap to share.',
                                 ),
                               ],
                             ),
-                          )
-
+                          ),
                         ),
                       ],
                     ),
@@ -84,14 +87,12 @@ class SharePage extends StatelessWidget {
                             height: 55,
                           ),
                           "Message",
-                              () async {
-                            final Uri smsUri =
-                            Uri(scheme: 'sms', path: '');
+                          () async {
+                            final Uri smsUri = Uri(scheme: 'sms', path: '');
                             if (await canLaunchUrl(smsUri)) {
                               await launchUrl(smsUri);
                             }
                           },
-
                         ),
                         _shareIcon(
                           Image.asset(
@@ -100,18 +101,16 @@ class SharePage extends StatelessWidget {
                             height: 55,
                           ),
                           "Mail",
-                              () async {
+                          () async {
                             final Uri emailUri = Uri(
                               scheme: 'mailto',
                               path: 'example@example.com',
-                              query:
-                              'subject=Hello&body=How are you?',
+                              query: 'subject=Hello&body=How are you?',
                             );
                             if (await canLaunchUrl(emailUri)) {
                               await launchUrl(emailUri);
                             }
                           },
-
                         ),
                         _shareIcon(
                           Image.asset(
@@ -120,16 +119,17 @@ class SharePage extends StatelessWidget {
                             height: 55,
                           ),
                           "Twitter",
-                              () async {
-                            final Uri twitterUri =
-                            Uri.parse('https://twitter.com/');
+                          () async {
+                            final Uri twitterUri = Uri.parse(
+                              'https://twitter.com/',
+                            );
                             if (await canLaunchUrl(twitterUri)) {
-                              await launchUrl(twitterUri,
-                                  mode:
-                                  LaunchMode.externalApplication);
+                              await launchUrl(
+                                twitterUri,
+                                mode: LaunchMode.externalApplication,
+                              );
                             }
                           },
-
                         ),
                         _shareIcon(
                           Image.asset(
@@ -138,16 +138,17 @@ class SharePage extends StatelessWidget {
                             height: 55,
                           ),
                           "Facebook",
-                              () async {
-                            final Uri fbUri =
-                            Uri.parse('https://facebook.com/');
+                          () async {
+                            final Uri fbUri = Uri.parse(
+                              'https://facebook.com/',
+                            );
                             if (await canLaunchUrl(fbUri)) {
-                              await launchUrl(fbUri,
-                                  mode:
-                                  LaunchMode.externalApplication);
+                              await launchUrl(
+                                fbUri,
+                                mode: LaunchMode.externalApplication,
+                              );
                             }
                           },
-
                         ),
                       ],
                     ),
@@ -160,34 +161,18 @@ class SharePage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        _shareIcon(
-                          Icon(Icons.copy),
-                          "Copy",
-                              () {
-                            // أكشن النسخ
-                          },
-                        ),
-                        _shareIcon(
-                          Icon(Icons.sticky_note_2),
-                          "Notes",
-                              () {
-                            // أكشن الملاحظات
-                          },
-                        ),
-                        _shareIcon(
-                          Icon(Icons.print),
-                          "Print",
-                              () {
-                            // أكشن الطباعة
-                          },
-                        ),
-                        _shareIcon(
-                          Icon(Icons.more_horiz),
-                          "More",
-                              () {
-                            // أكشن المزيد
-                          },
-                        ),
+                        _shareIcon(Icon(Icons.copy), "Copy", () {
+                          // أكشن النسخ
+                        }),
+                        _shareIcon(Icon(Icons.sticky_note_2), "Notes", () {
+                          // أكشن الملاحظات
+                        }),
+                        _shareIcon(Icon(Icons.print), "Print", () {
+                          // أكشن الطباعة
+                        }),
+                        _shareIcon(Icon(Icons.more_horiz), "More", () {
+                          // أكشن المزيد
+                        }),
                       ],
                     ),
                   ],
@@ -209,17 +194,25 @@ class SharePage extends StatelessWidget {
                       backgroundColor: AppPalette.textLight,
                       foregroundColor: AppPalette.textOrange,
                       elevation: 0,
-                      padding:
-                      const EdgeInsets.symmetric(vertical: 14),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfileScreen(),
+                        ),
+                      );
+                    },
                     child: const Text(
                       "Cancel",
                       style: TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.w600),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ),
@@ -232,11 +225,11 @@ class SharePage extends StatelessWidget {
   }
 
   static Widget _shareIcon(
-      Widget iconWidget,
-      String label,
-      VoidCallback onTap, {
-        Color? color,
-      }) {
+    Widget iconWidget,
+    String label,
+    VoidCallback onTap, {
+    Color? color,
+  }) {
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -249,10 +242,10 @@ class SharePage extends StatelessWidget {
             ),
             child: iconWidget is Icon
                 ? Icon(
-              iconWidget.icon,
-              size: 28,
-              color: color ?? AppPalette.textSubtitleLight,
-            )
+                    iconWidget.icon,
+                    size: 28,
+                    color: color ?? AppPalette.textSubtitleLight,
+                  )
                 : iconWidget,
           ),
           const SizedBox(height: 8),

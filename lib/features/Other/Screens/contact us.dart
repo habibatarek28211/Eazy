@@ -1,6 +1,7 @@
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
 import 'package:eazy/features/Other/Screens/common%20questions.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -30,7 +31,12 @@ class ContactUsScreen extends StatelessWidget {
               Icons.arrow_forward_ios,
               color: AppPalette.textBlack,
             ),
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
           ),
         ],
       ),
@@ -100,11 +106,11 @@ class ContactUsScreen extends StatelessWidget {
                             backgroundColor: AppPalette.primary,
                           ),
                           onPressed: () {
-                            Navigator.pop(context); // إغلاق الرسالة
+                            // Navigator.pop(context); // إغلاق الرسالة
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const FAQScreen(),
+                                builder: (context) => const ProfileScreen(),
                               ),
                             );
                           },

@@ -1,3 +1,4 @@
+import 'package:eazy/notification/presentation/screen/notification_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
@@ -12,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,17 +62,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(width: 8),
                 Container(
                   padding: const EdgeInsets.all(2),
-                  child: Image.asset(
-                    ImagesManager.eazytxt,
-                  ),
+                  child: Image.asset(ImagesManager.eazytxt),
                 ),
               ],
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: const BoxDecoration(),
-            child: SvgPicture.asset(ImagesManager.notification),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(),
+              child: SvgPicture.asset(ImagesManager.notification),
+            ),
           ),
         ],
       ),
@@ -82,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class ContinueLessonsSection extends StatelessWidget {
   const ContinueLessonsSection({Key? key}) : super(key: key);
-// قسم استكمل دروسك الجديد
+  // قسم استكمل دروسك الجديد
   @override
   Widget build(BuildContext context) {
     return Column(

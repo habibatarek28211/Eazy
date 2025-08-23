@@ -8,49 +8,65 @@ class SectionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final services = [
       ServiceItem(
-          icon: Icons.quiz_outlined, title: 'القواعد', color: Colors.white),
+        icon: Icons.quiz_outlined,
+        title: 'القواعد',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.record_voice_over_outlined,
-          title: 'كلمات',
-          color: Colors.white),
+        icon: Icons.record_voice_over_outlined,
+        title: 'كلمات',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.headset_mic_outlined,
-          title: 'الاستماع',
-          color: Colors.white),
+        icon: Icons.headset_mic_outlined,
+        title: 'الاستماع',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.menu_book_outlined,
-          title: 'القراءة',
-          color: Colors.white),
+        icon: Icons.menu_book_outlined,
+        title: 'القراءة',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.edit_note_outlined,
-          title: 'الكتابة',
-          color: Colors.white),
+        icon: Icons.edit_note_outlined,
+        title: 'الكتابة',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.psychology_outlined,
-          title: 'المفردات',
-          color: Colors.white),
+        icon: Icons.psychology_outlined,
+        title: 'المفردات',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.spatial_audio_outlined,
-          title: 'المحادثة',
-          color: Colors.white),
+        icon: Icons.spatial_audio_outlined,
+        title: 'المحادثة',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.translate_outlined,
-          title: 'الترجمة',
-          color: Colors.white),
+        icon: Icons.translate_outlined,
+        title: 'الترجمة',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.school_outlined,
-          title: 'الاختبارات',
-          color: Colors.white),
+        icon: Icons.school_outlined,
+        title: 'الاختبارات',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.quiz_outlined, title: 'القواعد', color: Colors.white),
+        icon: Icons.quiz_outlined,
+        title: 'القواعد',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.record_voice_over_outlined,
-          title: 'كلمات',
-          color: Colors.white),
+        icon: Icons.record_voice_over_outlined,
+        title: 'كلمات',
+        color: Colors.white,
+      ),
       ServiceItem(
-          icon: Icons.headset_mic_outlined,
-          title: 'الاستماع',
-          color: Colors.white),
+        icon: Icons.headset_mic_outlined,
+        title: 'الاستماع',
+        color: Colors.white,
+      ),
     ];
 
     return Scaffold(
@@ -68,10 +84,7 @@ class SectionScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.black87,
-          ),
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -124,11 +137,7 @@ class ServiceCard extends StatelessWidget {
                   color: AppPalette.badgeButton,
                   shape: BoxShape.circle,
                 ),
-                child: Icon(
-                  service.icon,
-                  size: 25,
-                  color: service.color,
-                ),
+                child: Icon(service.icon, size: 25, color: service.color),
               ),
               const SizedBox(height: 8),
               Text(
@@ -153,9 +162,5 @@ class ServiceItem {
   final String title;
   final Color color;
 
-  ServiceItem({
-    required this.icon,
-    required this.title,
-    required this.color,
-  });
+  ServiceItem({required this.icon, required this.title, required this.color});
 }
