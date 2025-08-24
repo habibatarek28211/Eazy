@@ -1,4 +1,5 @@
 
+import 'package:eazy/features/Questionsafterlesson/first%20question.dart';
 import 'package:eazy/features/home/presentation/Screens/section_screen.dart';
 import 'package:eazy/features/lessons/presentation/screens/lessons.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../../core/routing/routes.dart';
 
 class PromotionalBanner extends StatefulWidget {
   const PromotionalBanner({super.key});
@@ -427,13 +430,19 @@ class ContinueLessonsCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          const Text(
-            '4 أسئلة تقييم وتمارين',
-            style: TextStyle(
-              fontSize: 13,
-              color: Colors.grey,
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.FirstQuestionScreen);
+            },
+            child: const Text(
+              '4 أسئلة تقييم وتمارين',
+              style: TextStyle(
+                fontSize: 13,
+                color: Colors.grey,
+              ),
             ),
           ),
+
 
           const SizedBox(height: 4),
 

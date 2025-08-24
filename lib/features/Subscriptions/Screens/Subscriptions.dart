@@ -28,7 +28,7 @@ class SubscriptionScreen extends StatelessWidget {
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
             onPressed: () {
-              context.pushNamed(Routes.ProfileScreen);
+              Navigator.pop(context);
             },
           ),
         ),

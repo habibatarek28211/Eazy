@@ -18,6 +18,12 @@ class TermsAndConditionsPage extends StatelessWidget {
         backgroundColor: AppPalette.textLight,
         iconTheme: const IconThemeData(color: AppPalette.textBlack),
         elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),

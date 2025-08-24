@@ -12,7 +12,7 @@ import 'package:otp_text_field_v2/otp_field_v2.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
-  static const String routeName = 'otp_screen';
+  static const String routeName = 'OtpScreen';
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();

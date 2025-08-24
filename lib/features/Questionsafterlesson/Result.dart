@@ -26,8 +26,8 @@ class ResultScreen extends StatelessWidget {
             // ✅ أيقونة النجاح فوق الكونتينر
             SizedBox(height: 60,),
 
-            SvgPicture.asset(
-              ImagesManager.success,
+            Image.asset(
+              ImagesManager.success1,
               width: 200,
               height: 200,
             ),

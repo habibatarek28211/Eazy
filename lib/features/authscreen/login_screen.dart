@@ -10,7 +10,7 @@ import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static const String routeName = 'login_page';
+  static const String routeName = 'LoginScreen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 50),
 
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: const [
                         Text(
                           'تسجيل الدخول',
