@@ -95,122 +95,127 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            // محتوى الصفحات
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                physics: const BouncingScrollPhysics(),
-                reverse: true,
-                itemCount: _pages.length,
-                onPageChanged: (page) {
-                  setState(() => _currentPage = page);
-                },
-                itemBuilder: (context, index) {
-                  return _buildOnboardingPage(_pages[index]);
-                },
-              ),
-            ),
 
-            // الأزرار أسفل الشاشة
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppPadding.horizontalPagePadding,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+
+        body: SafeArea(
+          child: Column(
+            children: [
+              // محتوى الصفحات
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  physics: const BouncingScrollPhysics(),
+                  reverse: true,
+                  itemCount: _pages.length,
+                  onPageChanged: (page) {
+                    setState(() => _currentPage = page);
+                  },
+                  itemBuilder: (context, index) {
+                    return _buildOnboardingPage(_pages[index]);
+                  },
+                ),
               ),
-              child: _currentPage == _pages.length - 1
-                  // زر البدء
-                  ? ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          ),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppPalette.textOrange,
-                        minimumSize: Size(double.infinity, 80.h),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                      ),
-                      child: Text(
-                        "البدء",
-                        style: GoogleFonts.tajawal(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  // الصفحات الأولى والثانية
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      textDirection: TextDirection.rtl,
-                      children: [
-                        // زرار التالي (هينزل على الشمال)
-                        ElevatedButton(
-                          onPressed: () {
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppPalette.badgeButton,
-                            minimumSize: const Size(231, 57),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+
+              // الأزرار أسفل الشاشة
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppPadding.horizontalPagePadding,
+                ),
+                child: _currentPage == _pages.length - 1
+                    // زر البدء
+                    ? ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
                             ),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppPalette.textOrange,
+                          minimumSize: Size(double.infinity, 80.h),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(
-                                Icons.arrow_back_ios,
-                                color: Colors.white,
-                                size: 18,
+                        ),
+                        child: Text(
+                          "البدء",
+                          style: GoogleFonts.tajawal(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      )
+                    // الصفحات الأولى والثانية
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        textDirection: TextDirection.ltr,
+                        children: [
+                          // زرار التالي (هينزل على الشمال)
+                          ElevatedButton(
+                            onPressed: () {
+                              _pageController.nextPage(
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeInOut,
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppPalette.badgeButton,
+                              minimumSize: const Size(200, 57),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              const SizedBox(width: 8),
-                              Text(
-                                "التالي",
-                                style: GoogleFonts.tajawal(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w700,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Icon(
+                                  Icons.arrow_back_ios,
                                   color: Colors.white,
+                                  size: 18,
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        // زرار تخطي (هيفضل على اليمين)
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            "تخطي",
-                            style: GoogleFonts.tajawal(
-                              fontSize: 16.sp,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400,
+                                const SizedBox(width: 8),
+                                Text(
+                                  "التالي",
+                                  style: GoogleFonts.tajawal(
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-            ),
-          ],
+
+                          // زرار تخطي (هيفضل على اليمين)
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginScreen(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "تخطي",
+                              style: GoogleFonts.tajawal(
+                                fontSize: 16.sp,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+              ),
+            ],
+          ),
         ),
       ),
     );

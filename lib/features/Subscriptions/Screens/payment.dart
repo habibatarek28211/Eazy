@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
+  static const String routeName = 'PaymentScreen';
 
   static const double fieldSpacing = 16.0;
   static const double maxCardWidth = 470;
@@ -40,8 +41,9 @@ class PaymentScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // صورة Eazy
-                  Image.asset(ImagesManager.eazy, height: 150),
-                  const SizedBox(height: 8),
+                  Image.asset(ImagesManager.eazyPay, height: 130),
+                  const SizedBox(height: 2),
+
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -56,7 +58,7 @@ class PaymentScreen extends StatelessWidget {
                       ),
 
                       const SizedBox(width: 6),
-                      Image.asset(ImagesManager.padlock, width: 20, height: 20),
+                     Icon(Icons.lock, color: AppPalette.textBlack),
                     ],
                   ),
 

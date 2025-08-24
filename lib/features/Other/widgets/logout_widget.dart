@@ -1,4 +1,5 @@
 import 'package:eazy/core/config/app_palette.dart';
+import 'package:eazy/features/authscreen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -73,7 +74,7 @@ class LogoutButton extends StatelessWidget {
                         padding: EdgeInsets.symmetric(vertical: 12.h),
                       ),
                       onPressed: () {
-                        Navigator.pop(context); // يقفل الشيت
+                        Navigator.pushNamed(context, LoginScreen.routeName); // يقفل الشيت
                         if (onConfirm != null) {
                           onConfirm!(); // ينفذ الأكشن اللي أنتي بعتاه
                         }

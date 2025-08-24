@@ -1,7 +1,10 @@
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
+import 'package:eazy/features/myLessons/presentation/screens/myLessons_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../../core/routing/routes.dart';
 
 
 class ResultsScreen extends StatefulWidget {
@@ -47,7 +50,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
           ),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios, color: AppPalette.textBlack),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
         ),
         body: SingleChildScrollView(
@@ -113,8 +118,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
           Row(
             children:  [
 
-              SvgPicture.asset(
-                ImagesManager.mcq,
+              Image.asset(
+                ImagesManager.mcqP,
                 width: 19,
                 height: 17.25,
               ),

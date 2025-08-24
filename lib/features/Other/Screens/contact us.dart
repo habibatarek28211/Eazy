@@ -25,20 +25,12 @@ class ContactUsScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              color: AppPalette.textBlack,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfileScreen()),
-              );
-            },
-          ),
-        ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -107,12 +99,7 @@ class ContactUsScreen extends StatelessWidget {
                           ),
                           onPressed: () {
                             // Navigator.pop(context); // إغلاق الرسالة
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const ProfileScreen(),
-                              ),
-                            );
+                            Navigator.pop(context);
                           },
                           child: Text(
                             "تم",

@@ -1,5 +1,6 @@
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
+import 'package:eazy/nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'Terms and Conditions.dart';
 
@@ -41,20 +42,12 @@ class FAQScreen extends StatelessWidget {
             color: AppPalette.textBlackLight,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              color: AppPalette.textBlack,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ProfileScreen()),
-              );
-            },
-          ),
-        ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: ListView.builder(
         itemCount: faqs.length,

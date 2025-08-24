@@ -8,7 +8,7 @@ import 'otp_screen.dart';
 
 class ForgetPasswordScreen extends StatefulWidget {
   const ForgetPasswordScreen({super.key});
-  static const String routeName = 'forget_password_screen';
+  static const String routeName = 'ForgetPasswordScreen';
 
   @override
   State<ForgetPasswordScreen> createState() => _ForgetPasswordScreenState();

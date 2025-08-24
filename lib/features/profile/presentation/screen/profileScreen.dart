@@ -6,6 +6,7 @@ import 'package:eazy/features/Other/Screens/contact%20us.dart';
 import 'package:eazy/features/Other/widgets/logout_widget.dart';
 import 'package:eazy/features/Other/widgets/share_Sheet.dart';
 import 'package:eazy/features/Subscriptions/Screens/Subscriptions.dart';
+import 'package:eazy/features/Subscriptions/Screens/Upgrade%20now.dart';
 import 'package:eazy/features/authscreen/widgets/custom_setting_row.dart';
 import 'package:eazy/features/authscreen/widgets/show_bottom_sheet.dart';
 import 'package:eazy/features/profile/presentation/screen/personalDetailsScreen.dart';
@@ -15,7 +16,7 @@ import 'package:flutter_svg/svg.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-  static const String routeName = 'Profile_Screen';
+  static const String routeName = 'ProfileScreen';
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -36,6 +37,7 @@ class ProfileScreen extends StatelessWidget {
         //   ],
         // ),
         appBar: AppBar(
+          automaticallyImplyLeading: false, // 👈 دي اللي بتخفي زرار الرجوع
           backgroundColor: Colors.white,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,6 +69,7 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
+
 
         body: Column(
           children: [
@@ -133,7 +136,7 @@ class ProfileScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SubscriptionScreen(),
+                      builder: (context) => const UpgradeNowScreen(),
                     ),
                   );
                 },
@@ -244,6 +247,7 @@ class ProfileScreen extends StatelessWidget {
                   },
                   child: LogoutButton(
                     onConfirm: () {
+
                       // هنا تكتبي الأكشن اللي يحصل فعلاً بعد ما المستخدم يوافق
                       print("User Logged Out ✅");
                       // مثلا: Navigator.pushReplacementNamed(context, "/login");

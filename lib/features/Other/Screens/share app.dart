@@ -258,11 +258,21 @@ class SharePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("iOS Style Share Sheet")),
+      appBar: AppBar(title: const Text("iOS Style Share Sheet"),
+
+          leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: Colors.black87),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    ),
+      ),
+
       body: Center(
         child: ElevatedButton(
           onPressed: () => _showShareSheet(context),
           child: const Text("Open Share Sheet"),
+
         ),
       ),
     );

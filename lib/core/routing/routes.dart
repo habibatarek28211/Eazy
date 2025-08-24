@@ -18,4 +18,6 @@ class Routes {
   static const String MyLessonsScreen = 'MyLessonsScreen';
   static const String CustomNavBar = 'CustomNavBar';
   static const String UpgradeNowScreen = 'UpgradeNowScreen';
+  static const String PaymentScreen = 'PaymentScreen';
+  static const String FirstQuestionScreen = 'FirstQuestionScreen';
 }

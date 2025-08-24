@@ -7,6 +7,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class FirstQuestionScreen extends StatefulWidget {
   const FirstQuestionScreen({super.key});
+  static const String routeName = 'FirstQuestionScreen';
+
 
   @override
   State<FirstQuestionScreen> createState() => _FirstQuestionScreenState();
@@ -170,8 +172,8 @@ class _FirstQuestionScreenState extends State<FirstQuestionScreen> {
                 children: [
 
 
-              SvgPicture.asset(
-              ImagesManager.mcq,          //  أيقونة الـ SVG
+              Image.asset(
+              ImagesManager.mcqP,          //  أيقونة الـ SVG
                 width: 19,
                 height: 17.25,
               ),
