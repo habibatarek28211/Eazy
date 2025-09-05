@@ -1,6 +1,8 @@
 import 'package:eazy/core/config/app_padding.dart';
 import 'package:eazy/core/config/app_palette.dart';
 import 'package:eazy/core/config/images_manager.dart';
+import 'package:eazy/core/config/text_styles_manager.dart';
+import 'package:eazy/features/authscreen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 4), () {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,
@@ -32,10 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           // الخلفية
           SizedBox.expand(
-            child: Image.asset(
-              ImagesManager.splashScreen,
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset(ImagesManager.splashScreen, fit: BoxFit.cover),
           ),
 
           // المحتوى في منتصف الشاشة
@@ -43,12 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
             alignment: Alignment.center,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  ImagesManager.eazyText,
-                  height: 200.h,
-                ),
-              ],
+              children: [Image.asset(ImagesManager.eazy, height: 200.h)],
             ),
           ),
           Align(
@@ -81,12 +75,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     OnboardingPageModel(
       title: "قم بتمكين تجربة التعلم الخاصة بك",
       description:
-          "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص. هذا النص هو مثال لنص يمكن",
+      "هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص. هذا النص هو مثال لنص يمكن",
     ),
     OnboardingPageModel(
       title: "اكتشف محتوى تعليمي متميز",
       description:
-          "استفد من آلاف الساعات التعليمية المصممة خصيصاً لتطوير مهاراتك",
+      "استفد من آلاف الساعات التعليمية المصممة خصيصاً لتطوير مهاراتك",
     ),
     OnboardingPageModel(
       title: "ابدأ رحلتك التعليمية الآن",
@@ -102,102 +96,115 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          children: [
-            // محتوى الصفحات
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                physics: const BouncingScrollPhysics(),
-                reverse: true,
-                itemCount: _pages.length,
-                onPageChanged: (page) {
-                  setState(() => _currentPage = page);
-                },
-                itemBuilder: (context, index) {
-                  return _buildOnboardingPage(_pages[index]);
-                },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        body: SafeArea(
+          child: Column(
+            children: [
+              // محتوى الصفحات
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  physics: const BouncingScrollPhysics(),
+                  reverse: true,
+                  itemCount: _pages.length,
+                  onPageChanged: (page) {
+                    setState(() => _currentPage = page);
+                  },
+                  itemBuilder: (context, index) {
+                    return _buildOnboardingPage(_pages[index]);
+                  },
+                ),
               ),
-            ),
 
-            // الأزرار أسفل الشاشة
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: AppPadding.horizontalPagePadding),
-              child: _currentPage == _pages.length - 1
-                  // زر البدء
-                  ? ElevatedButton(
+              // الأزرار أسفل الشاشة
+              Padding(
+                padding: EdgeInsets.only(
+                  left: AppPadding.horizontalPagePadding,
+                  right: AppPadding.horizontalPagePadding,
+                  bottom: 30.h,
+                ),
+                child: _currentPage == _pages.length - 1
+                // زر البدء
+                    ? ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppPalette.textOrange,
+                    minimumSize: Size(double.infinity, 60.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    "ابدأ",
+                    style: TextStylesManager.headlineMediumLight.copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+                // الصفحات الأولى والثانية
+                    : Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  textDirection: TextDirection.ltr,
+                  children: [
+                    ElevatedButton(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home');
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppPalette.textOrange,
-                        minimumSize: Size(double.infinity, 80.h),
+                        backgroundColor: AppPalette.badgeButton,
+                        minimumSize: const Size(200, 57),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: Text(
-                        "البدء",
-                        style: GoogleFonts.tajawal(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    )
-                  // الصفحات الأولى والثانية
-                  : Row(
-                      children: [
-                        ElevatedButton(
-                            onPressed: () {
-                              _pageController.nextPage(
-                                duration: const Duration(milliseconds: 300),
-                                curve: Curves.easeInOut,
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: AppPalette.badgeButton,
-                              minimumSize: Size(231, 57),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(Icons.arrow_back_ios,
-                                    color: Colors.white, size: 18),
-                                const SizedBox(width: 8), // مسافة ثابتة
-                                Text(
-                                  "التالي",
-                                  style: GoogleFonts.tajawal(
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            )),
-                        const Spacer(),
-                        TextButton(
-                          onPressed: () =>
-                              Navigator.pushReplacementNamed(context, '/home'),
-                          child: Text(
-                            "تخطي",
-                            style: GoogleFonts.tajawal(
-                              fontSize: 16.sp,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.w400,
-                            ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                            size: 18,
                           ),
-                        ),
-                      ],
+                          const SizedBox(width: 8),
+                          Text(
+                            "التالي",
+                            style: TextStylesManager.headlineLargeLight
+                                .copyWith(color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
-            ),
-          ],
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "تخطي",
+                        style: TextStylesManager.headlineLargeLight,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -206,15 +213,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget _buildOnboardingPage(OnboardingPageModel page) {
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: AppPadding.horizontalPagePadding,
-          vertical: AppPadding.verticalPadding),
+        horizontal: AppPadding.horizontalPagePadding,
+        vertical: AppPadding.verticalPadding,
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(
-            ImagesManager.onboarding,
-            height: 350.h,
-          ),
+          Image.asset(ImagesManager.onboarding, height: 350.h),
           SizedBox(height: 50.h),
 
           // مؤشر الصفحات تحت الصورة
@@ -223,7 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             textDirection: TextDirection.rtl,
             children: List.generate(
               _pages.length,
-              (index) => _buildPageIndicator(index),
+                  (index) => _buildPageIndicator(index),
             ),
           ),
 
@@ -232,12 +237,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           // العنوان
           Text(
             page.title,
-            style: GoogleFonts.tajawal(
-              fontSize: 15.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-              // height: 1.5,
-            ),
+            style: TextStylesManager.titleLarge,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 10.h),
@@ -245,12 +245,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           // الوصف
           Text(
             page.description,
-            style: GoogleFonts.tajawal(
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey[400],
-              // height: 1.5,
-            ),
+            style: TextStylesManager.headlineLargeLight,
             textAlign: TextAlign.center,
           ),
         ],
@@ -275,8 +270,5 @@ class OnboardingPageModel {
   final String title;
   final String description;
 
-  OnboardingPageModel({
-    required this.title,
-    required this.description,
-  });
+  OnboardingPageModel({required this.title, required this.description});
 }

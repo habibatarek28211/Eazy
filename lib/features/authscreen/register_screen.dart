@@ -1,15 +1,13 @@
-
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
 import '../../helper/show_snack_bar.dart';
 import 'login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
-  static const String routeName = 'register_screen';
+  static const String routeName = 'RegisterScreen';
 
   @override
   State<RegisterScreen> createState() => _RegisterScreenState();
@@ -27,14 +25,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/images/splash.png',
-              fit: BoxFit.cover,
-            ),),
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/splash.png"),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
 
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -44,7 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 autovalidateMode: autoValidateMode,
                 child: Column(
                   children: [
-                    SizedBox(height: 50),
+                    SizedBox(height: 30),
                     Image.asset(
                       'assets/images/image_logo.png',
                       width: width(context),
@@ -175,9 +177,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 50),
+                    SizedBox(height: 30),
                     CustomButton(
-                      onTap: validateAndSubmit,
+                      onTap: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ),
+                        );
+                      },
                       text: 'إنشاء حساب',
                     ),
 
@@ -187,7 +196,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, LoginScreen.routeName);
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ),
+                            );
                           },
                           child: Text(
                             'تسجيل الدخول',
@@ -215,12 +229,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
           ),
-
         ],
-
       ),
     );
   }
+
   void validateAndSubmit() {
     if (!isCheck) {
       showSnackBar(context, 'يجب الموافقة على الشروط والأحكام للاستمرار');
@@ -229,7 +242,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
-
     } else {
       setState(() {
         autoValidateMode = AutovalidateMode.always;

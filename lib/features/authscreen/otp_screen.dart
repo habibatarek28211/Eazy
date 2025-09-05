@@ -1,16 +1,18 @@
 import 'dart:async';
+import 'package:eazy/constants.dart';
 import 'package:eazy/features/authscreen/reset_password.dart';
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:flutter/material.dart';
-import '../../constants.dart';
+import 'package:otp_text_field_v2/otp_field_style_v2.dart';
+import 'package:otp_text_field_v2/otp_field_v2.dart';
 
 
 
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
-  static const String routeName = 'otp_screen';
+  static const String routeName = 'OtpScreen';
 
   @override
   State<OtpScreen> createState() => _OtpScreenState();
@@ -107,34 +109,34 @@ class _OtpScreenState extends State<OtpScreen> {
 
               SizedBox(height: 50),
 
-                  OTPTextField(
-                    length: 4,
-                    width: MediaQuery.of(context).size.width,
-                    fieldWidth: 50,
-                    style: const TextStyle(fontSize: 20),
-                    textFieldAlignment: MainAxisAlignment.spaceEvenly,
-                    fieldStyle: FieldStyle.box,
-                    otpFieldStyle: OtpFieldStyle(
-                      borderColor: hasError ? Colors.red : kPrimaryColor,
-                      focusBorderColor: hasError ? Colors.red : kPrimaryColor,
-                      backgroundColor: Colors.white,
-                    ),
-                    keyboardType: TextInputType.number,
-                    onChanged: (value) {
-                      setState(() {
-                        otpValue = value;
-                        hasError = false;
-                      });
-                    },
-                    onCompleted: (value) {
-                      setState(() {
-                        otpValue = value;
-                        hasError = false;
-                      });
-                    },
-                  ),
+              OTPTextFieldV2(
+                length: 4,
+                width: MediaQuery.of(context).size.width,
+                fieldWidth: 50,
+                style: const TextStyle(fontSize: 20),
+                textFieldAlignment: MainAxisAlignment.spaceEvenly,
+                fieldStyle: FieldStyle.box,
+                otpFieldStyle: OtpFieldStyle(
+                  borderColor: hasError ? Colors.red : kPrimaryColor,
+                  focusBorderColor: hasError ? Colors.red : kPrimaryColor,
+                  backgroundColor: Colors.white,
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    otpValue = value;
+                    hasError = false;
+                  });
+                },
+                onCompleted: (value) {
+                  setState(() {
+                    otpValue = value;
+                    hasError = false;
+                  });
+                },
+              ),
 
-                  SizedBox(height: 10),
+              SizedBox(height: 10),
               Visibility(
                 visible: hasError,
                 child: Row(
@@ -158,17 +160,17 @@ class _OtpScreenState extends State<OtpScreen> {
                 onTap: start > 0
                     ? null
                     : () {
-                        if (otpValue.isEmpty || otpValue.length < 4) {
-                          setState(() {
-                            hasError = true;
-                          });
-                          return;
-                        }
-                        setState(() {
-                          hasError = false;
-                        });
-                        Navigator.pushNamed(context, ResetPassword.routeName);
-                      },
+                  if (otpValue.isEmpty || otpValue.length < 4) {
+                    setState(() {
+                      hasError = true;
+                    });
+                    return;
+                  }
+                  setState(() {
+                    hasError = false;
+                  });
+                  Navigator.pushNamed(context, ResetPassword.routeName);
+                },
                 text: 'تأكيد',
               ),
 
@@ -176,18 +178,18 @@ class _OtpScreenState extends State<OtpScreen> {
 
               start > 0
                   ? Text(
-                      'حاول مرة أخرى بعد 00:${start.toString().padLeft(2, '0')}',
-                      style: TextStyle(color: kSecondaryColor, fontSize: 16),
-                    )
+                'حاول مرة أخرى بعد 00:${start.toString().padLeft(2, '0')}',
+                style: TextStyle(color: kSecondaryColor, fontSize: 16),
+              )
                   : GestureDetector(
-                      onTap: () {
-                        startTimer();
-                      },
-                      child: Text(
-                        'إعادة إرسال الرمز',
-                        style: TextStyle(color: kPrimaryColor, fontSize: 16),
-                      ),
-                    ),
+                onTap: () {
+                  startTimer();
+                },
+                child: Text(
+                  'إعادة إرسال الرمز',
+                  style: TextStyle(color: kPrimaryColor, fontSize: 16),
+                ),
+              ),
             ],
           ),
         ),
@@ -195,5 +197,3 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
-
-

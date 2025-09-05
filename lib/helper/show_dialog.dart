@@ -16,7 +16,7 @@ void showSuccessDialog(BuildContext context,String message, String buttonText, V
             mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(height: 50),
-               Text(
+              Text(
                 message,
                 style: TextStyle(
                   fontSize: 16,
@@ -26,20 +26,20 @@ void showSuccessDialog(BuildContext context,String message, String buttonText, V
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
-               GestureDetector(
-                  onTap: onTap,
-                  child: Container(
-                    width: double.infinity,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-                      child: Text('انتقل الي الصفحه الرئيسيه',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-                    ),
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  width: double.infinity,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: kPrimaryColor,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Center(
+                    child: Text('انتقل الي الصفحه الرئيسيه',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                   ),
                 ),
+              ),
 
               const SizedBox(height: 15),
             ],

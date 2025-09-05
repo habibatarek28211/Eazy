@@ -18,6 +18,7 @@ class AppPalette {
   static const textBlackLight = Color(0xFF011526);
   static const textOrange = Color(0xFFFE9F45);
   static const textSubtitleLight = Color(0xFFA4ACAD);
+  static const textOrangeLight = Color(0xFFFFF8E1);
 
 
 
@@ -25,13 +26,14 @@ class AppPalette {
   static const textFiledEnabledBorder = Color(0xFFE6E9EA);
   static const textFiledFocusedBorder = Color(0xFFF9FAFA);
   static const textFiledErrorBorder = actionFailLight;
+  static const textFiledSearch = Color.fromRGBO(249, 250, 250, 1);
 
-//ButtonBackground
+  //ButtonBackground
   static const badgeButton = Color(0xFF2A72AD);
   static const badgeGrayButton = Color(0xFFAFB6B7);
   static const subscribtionButton = Color(0xFFFFC32C24);
 
-// border color
+  // border color
   static const borderColor = primaryThinLight;
 
   // bottom nav bar

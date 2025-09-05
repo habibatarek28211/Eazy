@@ -1,12 +1,13 @@
-
+import 'package:eazy/constants.dart';
+import 'package:eazy/features/authscreen/update_password_screen.dart';
+import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
+import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
+import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
+import 'package:eazy/features/authscreen/widgets/show_bottom_sheet.dart';
+import 'package:eazy/features/home/presentation/Screens/home.dart';
+import 'package:eazy/features/profile/presentation/screen/profileScreen.dart';
+import 'package:eazy/helper/show_dialog.dart';
 import 'package:flutter/material.dart';
-import '../../../../constants.dart';
-import '../../../../helper/show_dialog.dart';
-import '../../../authscreen/update_password_screen.dart';
-import '../../../authscreen/widgets/custom_buttom.dart';
-import '../../../authscreen/widgets/custom_icon_bar.dart';
-import '../../../authscreen/widgets/custom_text_field.dart';
-import '../../../authscreen/widgets/show_bottom_sheet.dart';
 
 class PersonalDetailsScreen extends StatelessWidget {
   const PersonalDetailsScreen({super.key});
@@ -32,6 +33,11 @@ class PersonalDetailsScreen extends StatelessWidget {
           IconButton(
             onPressed: () {
               Navigator.pop(context);
+              // push(
+              //   context,
+              //   MaterialPageRoute(
+              //       builder: (context) => const ProfileScreen()),
+              // );
             },
             icon: CustomIconBar(),
           ),
@@ -64,14 +70,14 @@ class PersonalDetailsScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-          
+
               CustomTextField(text: "اسم المستخدم"),
               const SizedBox(height: 25),
               CustomTextField(text: "رقم الهاتف"),
               const SizedBox(height: 25),
               CustomTextField(text: "البريد الإلكتروني"),
               const SizedBox(height: 25),
-          
+
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, UpdatePasswordScreen.routeName);
@@ -92,18 +98,16 @@ class PersonalDetailsScreen extends StatelessWidget {
                   ],
                 ),
               ),
-          
+
               SizedBox(height: 100),
-          
+
               CustomButton(
                 onTap: () {
-                  showSuccessDialog(context, 'تم حفظ التعديلات بنجاح', 'تم', () {
-                    Navigator.pop(context);
-                  });
+                  Navigator.popUntil(context, (route) => route.isFirst);
                 },
                 text: 'حفظ التعديلات',
               ),
-          
+
               // زر حذف الحساب
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -116,7 +120,8 @@ class PersonalDetailsScreen extends StatelessWidget {
                         builder: (context) {
                           return ShowBottomSheet(
                             title: 'حذف الحساب',
-                           firstLine:  'هل انت متأكد من انك تريد حذف الحساب؟ سيتم حذف',
+                            firstLine:
+                            'هل انت متأكد من انك تريد حذف الحساب؟ سيتم حذف',
                             secondLine: 'البيانات بشكل كامل',
                           );
                         },

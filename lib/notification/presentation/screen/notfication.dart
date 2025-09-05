@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../features/authscreen/widgets/custom_icon_bar.dart';
 
-
 class NotificationsPage extends StatelessWidget {
   final List<Map<String, String>> notifications;
 
@@ -15,19 +14,17 @@ class NotificationsPage extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        
         appBar: AppBar(
           title: const Text(
             "الإشعارات",
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-           leading: IconButton(
-             icon: CustomIconBar(),
-
-             //const Icon(Icons.arrow_back_ios, color: Colors.black),
-             onPressed: () => Navigator.pop(context),
-           ),
+          //  leading: IconButton(
+          //    icon: CustomIconBar(),
+          //    //const Icon(Icons.arrow_back_ios, color: Colors.black),
+          //    onPressed: () => Navigator.pop(context),
+          //  ),
         ),
         body: hasNotifications
             ? ListView.builder(
@@ -44,7 +41,6 @@ class NotificationsPage extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  
                   Container(
                     width: 50,
                     height: 50,
@@ -97,7 +93,11 @@ class NotificationsPage extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 "ليس لديك إشعارات جديدة حتى الآن",
-                style: TextStyle(color: Colors.grey.shade500, fontSize: 16,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.grey.shade500,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

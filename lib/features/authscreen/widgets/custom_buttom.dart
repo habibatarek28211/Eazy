@@ -1,7 +1,7 @@
+import 'package:eazy/constants.dart';
+import 'package:eazy/core/config/app_palette.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants.dart';
-import '../../../core/config/app_palette.dart';
 
 
 class CustomButton extends StatelessWidget {

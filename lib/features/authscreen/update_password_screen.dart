@@ -9,7 +9,7 @@ import 'forget_password_screen.dart';
 
 class UpdatePasswordScreen extends StatefulWidget {
   const UpdatePasswordScreen({super.key});
-  static const String routeName = 'change_password_screen';
+  static const String routeName = 'UpdatePasswordScreen';
 
   @override
   State<UpdatePasswordScreen> createState() => _ResetPasswordState();
@@ -127,17 +127,17 @@ class _ResetPasswordState extends State<UpdatePasswordScreen> {
                 ),
                 SizedBox(height: height(context) * 0.40),
                 CustomButton(
-                  onTap: () {
-                    if (formKey.currentState!.validate()) {
-                      formKey.currentState!.save();
-                    } else {
-                      setState(() {
-                        autoValidateMode = AutovalidateMode.always;
-                      });
-                    }
-                  },
+                    onTap: () {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                      } else {
+                        setState(() {
+                          autoValidateMode = AutovalidateMode.always;
+                        });
+                      }
+                    },
 
-                  text: 'حفظ التعديلات'
+                    text: 'حفظ التعديلات'
                 ),
               ],
             ),

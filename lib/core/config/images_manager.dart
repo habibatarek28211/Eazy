@@ -1,15 +1,18 @@
 class ImagesManager {
-  static const String newOffer = "assets/imagges/new_offers.png";
+  static const String newOffer = "assets/images/new_offers.png";
   static const String splashScreen = "assets/images/splash.png";
+  static const String eazytxt = "assets/images/eazytext.png";
   static const String bill = "assets/svgs/bill.svg";
   static const String book = "assets/svgs/book.svg";
   static const String bookmark = "assets/svgs/bookmark.svg";
   static const String call = "assets/svgs/call.svg";
   static const String camera = "assets/svgs/camera.svg";
   static const String crown = "assets/svgs/crown.svg";
+  static const String crownP = "assets/images/crown.png";
   static const String delete = "assets/svgs/delete.svg";
-  static const String eazyText = "assets/svgs/eazy_text.svg";
-  static const String eazy = "assets/svgs/eazy.svg";
+  static const String eazy_text = "assets/svgs/eazy_text.svg";
+  static const String eazy = "assets/images/eazy.png";
+  static const String eazyPay = "assets/images/EazyPay.png";
   static const String edit = "assets/svgs/edit.svg";
   static const String error = "assets/svgs/error.svg";
   static const String facebook = "assets/svgs/facebook.svg";
@@ -21,11 +24,12 @@ class ImagesManager {
   static const String locked = "assets/svgs/locked.svg";
   static const String man = "assets/svgs/man.svg";
   static const String mcq = "assets/svgs/mcq.svg";
+  static const String mcqP = "assets/images/Mcq.png";
   static const String myLessonsFull = "assets/svgs/my_lesson_full.svg";
   static const String myLesson = "assets/svgs/my_lesson.svg";
   static const String noNotification = "assets/svgs/no_notification.svg";
   static const String notification = "assets/svgs/notification.svg";
-  static const String onboarding = "assets/svgs/onboarding.svg";
+  static const String onboarding = "assets/images/onboarding.png";
   static const String padlock = "assets/svgs/padlock.svg";
   static const String profile = "assets/svgs/profile.svg";
   static const String puzzle = "assets/svgs/puzzle.svg";
@@ -37,6 +41,7 @@ class ImagesManager {
   static const String sleepNotes = "assets/svgs/sleep_Notes.svg";
   static const String subscription = "assets/svgs/subscription.svg";
   static const String success = "assets/svgs/success.svg";
+  static const String success1 = "assets/images/success.png";
   static const String termsCondition = "assets/svgs/terms_Condition.svg";
   static const String timer = "assets/svgs/timer.svg";
   static const String twitter = "assets/svgs/twitter.svg";
@@ -49,6 +54,5 @@ class ImagesManager {
   static const String instagramm = "assets/images/انستججررام.jpg";
   static const String whatsappp = "assets/images/whatsapp_101778.png";
   static const String twitterr = "assets/images/تويتتر.jpg";
-
-
+  static const String unlock = "assets/images/unlocked1.png";
 }

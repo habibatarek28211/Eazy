@@ -1,5 +1,6 @@
+import 'package:eazy/constants.dart';
 import 'package:flutter/material.dart';
-import '../../../constants.dart';
+
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -47,20 +48,20 @@ class _CustomTextFieldState extends State<CustomTextField> {
             fillColor: Colors.white,
             hintText: widget.text,
             hintStyle: TextStyle(
-              color: kSecondaryColor
+                color: kSecondaryColor
             ),
             suffixIcon: widget.isPassword
                 ? IconButton(
-                    icon: Icon(
-                      obscureText ? Icons.visibility_off : Icons.visibility,
-                      color: kSecondaryColor,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    },
-                  )
+              icon: Icon(
+                obscureText ? Icons.visibility_off : Icons.visibility,
+                color: kSecondaryColor,
+              ),
+              onPressed: () {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              },
+            )
                 : Icon(widget.iconData, color: kSecondaryColor),
             border: buildBorder(),
             enabledBorder: buildBorder(),

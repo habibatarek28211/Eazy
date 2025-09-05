@@ -1,16 +1,16 @@
-
-import 'package:eazy/features/authscreen/register_screen.dart';
+import 'package:eazy/core/routing/routes.dart';
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
+import 'package:eazy/features/home/presentation/Screens/home.dart';
+import 'package:eazy/nav_bar.dart';
 import 'package:flutter/material.dart';
-
 import '../../constants.dart';
 import '../../helper/show_dialog.dart';
 import 'forget_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static const String routeName = 'login_page';
+  static const String routeName = 'LoginScreen';
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -34,13 +34,16 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Image.asset(
-              'assets/images/splash.png',
-              fit: BoxFit.cover,
+          Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/splash.png"),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
@@ -59,9 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 50),
 
-
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: const [
                         Text(
                           'تسجيل الدخول',
@@ -145,7 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             'تم حفظ التعديلات بنجاح',
                             'تم',
                                 () {
-                              Navigator.pop(context);
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CustomNavBar(),
+                                ),
+                              );
                             },
                           );
                         } else {
@@ -163,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, RegisterScreen.routeName);
+                            Navigator.pushNamed(context, Routes.RegisterScreen);
                           },
                           child: const Text(
                             'سجل الآن',
@@ -191,7 +198,6 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ],
-
       ),
     );
   }

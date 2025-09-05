@@ -1,16 +1,14 @@
-
+import 'package:eazy/constants.dart';
 import 'package:eazy/features/authscreen/widgets/custom_buttom.dart';
 import 'package:eazy/features/authscreen/widgets/custom_icon_bar.dart';
 import 'package:eazy/features/authscreen/widgets/custom_text_field.dart';
+import 'package:eazy/helper/show_dialog.dart';
 import 'package:flutter/material.dart';
-import '../../constants.dart';
-import '../../helper/show_dialog.dart';
 import 'login_screen.dart';
-
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
-  static const String routeName = 'reset_password';
+  static const String routeName = 'ResetPassword';
 
   @override
   State<ResetPassword> createState() => _ResetPasswordState();
@@ -75,8 +73,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                 ),
                 const SizedBox(height: 50),
                 CustomTextField(
-                    isPassword: true,
-                    onChanged: (value) {
+                  isPassword: true,
+                  onChanged: (value) {
                     password = value;
                   },
                   validator: (value) {
@@ -117,9 +115,19 @@ class _ResetPasswordState extends State<ResetPassword> {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      showSuccessDialog(context, 'تم حفظ التغيرات بنجاح', 'انتقل الي الصفحه الرئيسيه',(){
-                        Navigator.pushNamed(context, LoginScreen.routeName);
-                      });
+                      showSuccessDialog(
+                        context,
+                        'تم حفظ التغيرات بنجاح',
+                        'انتقل الي الصفحه الرئيسيه',
+                            () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
+                      );
                       // Navigator.pushNamed(context, LoginScreen.routeName);
                     } else {
                       setState(() {

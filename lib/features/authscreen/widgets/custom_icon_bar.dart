@@ -1,6 +1,5 @@
+import 'package:eazy/constants.dart';
 import 'package:flutter/material.dart';
-
-import '../../../constants.dart';
 
 
 class CustomIconBar extends StatelessWidget {
