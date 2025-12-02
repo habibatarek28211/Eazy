@@ -16,7 +16,7 @@ Easy App is a cross-platform mobile application built with Flutter to help users
 
  Technologies Used
 - Flutter & Dart
-- State Management (setState / Provider)
+- State Management: setState
 - Firebase / Local Storage
 - Responsive UI Components
 
